@@ -23,3 +23,14 @@ const students = [{
     cosmology: [5, 5, 5, 5]
   }
 }];
+
+// (1 function) get science
+const getSubject = (student) => {
+  return Object.keys(student.subjects).map(
+      (letter) => letter[0].toUpperCase() + letter.slice(1).replace("_", " ")
+  );
+};
+
+console.log("Students science: ", getSubject(students[0]).join(", "));
+
+//(2 function) average mark
