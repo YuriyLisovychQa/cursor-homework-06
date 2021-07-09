@@ -56,3 +56,28 @@ const getStudentInfo = (students) => {
 
 console.log("Students info ", getStudentInfo(students));
 
+//(4 function) students names
+const getStudentsName = (student) => {
+  return student.map(item => item.name).map(letter => letter[0].toUpperCase() + letter.slice(1)).sort();
+}
+
+console.log("Students names ", getStudentsName(students));
+
+//(5 function) best student
+const getBestStudent = (students) => {
+  let maxMark = 0;
+  let nameOfTheBestStudent;
+
+  students.forEach((student) => {
+    let averangeMark = getAverageMark(student)
+    if (averangeMark > maxMark) {
+      maxMark = averangeMark
+      nameOfTheBestStudent = student.name
+    }
+  })
+
+  return nameOfTheBestStudent;
+}
+
+console.log("Best of the best student: ", getBestStudent(students));
+
