@@ -45,3 +45,14 @@ const getAverageMark = (student) => {
 
 console.log("Average mark: ", getAverageMark(students[0]));
 
+//(3 function) students info
+const getStudentInfo = (students) => {
+  return students.map((student) => {
+    let studentData = {...student, averagemark: getAverageMark(student)}
+    delete studentData.subjects;
+    return studentData;
+  })
+}
+
+console.log("Students info ", getStudentInfo(students));
+
