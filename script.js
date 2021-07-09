@@ -81,3 +81,16 @@ const getBestStudent = (students) => {
 
 console.log("Best of the best student: ", getBestStudent(students));
 
+//(6 function) calculate word
+const calculateWordLetters = (string) => {
+  let newObject = {};
+  const letters = string.split("");
+
+  letters.forEach((letter) => {
+    newObject[letter] = letters.filter((element) => element === letter).length;
+  })
+
+  return newObject;
+}
+
+console.log("Calculate letters in word", calculateWordLetters("javascriptsostrong"))
