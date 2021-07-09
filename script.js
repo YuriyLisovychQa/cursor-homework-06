@@ -33,4 +33,3 @@ const getSubject = (student) => {
 
 console.log("Students science: ", getSubject(students[0]).join(", "));
 
-//(2 function) average mark
