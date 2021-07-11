@@ -36,11 +36,9 @@ console.log("Students science: ", getSubject(students[0]).join(", "));
 //(2 function) average mark
 const getAverageMark = (student) => {
   const allStudentMarks = Object.values(student.subjects).flat();
-  let sum = 0;
+  let sum =  allStudentMarks.reduce((prev, curr) => prev += curr);
 
-  allStudentMarks.forEach((mark) => sum += mark);
-
-  return (sum / allStudentMarks.length).toFixed(2);
+  return Number((sum / allStudentMarks.length).toFixed(2));
 }
 
 console.log("Average mark: ", getAverageMark(students[0]));
@@ -48,12 +46,13 @@ console.log("Average mark: ", getAverageMark(students[0]));
 //(3 function) students info
 const getStudentInfo = (students) => {
   return students.map((student) => {
-    let studentData = {...student, averagemark: getAverageMark(student)}
-    delete studentData.subjects;
-    return studentData;
-  })
+    return {
+      course: student.course,
+      name: student.name,
+      averageMark: getAverageMark(student)
+    };
+  });
 }
-
 console.log("Students info ", getStudentInfo(students));
 
 //(4 function) students names
